@@ -1,6 +1,6 @@
 %define	module	CGI-Minimal
 %define name	perl-%{module}
-%define version 1.27
+%define version 1.29
 %define release %mkrel 1
 
 Name:		%{name}
