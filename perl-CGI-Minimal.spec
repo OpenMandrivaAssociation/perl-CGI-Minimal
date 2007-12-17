@@ -15,7 +15,6 @@ Source:		http://www.cpan.org/modules/by-module/CGI/%{module}-%{version}.tar.bz2
 BuildRequires:	perl-devel
 %endif
 BuildArch:	noarch
-Buildroot:	%{_tmppath}/%{name}-%{version}
 
 %description
 CGI-Minimal is an extremely lightweight Perl module that provides CGI
