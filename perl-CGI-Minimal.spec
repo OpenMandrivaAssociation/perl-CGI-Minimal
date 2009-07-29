@@ -1,30 +1,29 @@
-%define	module	CGI-Minimal
-%define name	perl-%{module}
-%define version 1.29
-%define release %mkrel 3
+%define	upstream_name	 CGI-Minimal
+%define upstream_version 1.29
 
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
 Summary:	Extremely lightweight CGI processing package
 License:	GPL
 Group:		Development/Perl
-URL:		http://search.cpan.org/dist/%{module}
-Source:		http://www.cpan.org/modules/by-module/CGI/%{module}-%{version}.tar.bz2
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/CGI/%{upstream_name}-%{upstream_version}.tar.bz2
+
 %if %{mdkversion} < 1010
 BuildRequires:	perl-devel
 %endif
 BuildArch:	noarch
-Buildroot:	%{_tmppath}/%{name}-%{version}
+Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 CGI-Minimal is an extremely lightweight Perl module that provides CGI
 processing abilities designed to provide form decoding and related services
 with low overhead.
 
-
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -46,6 +45,3 @@ rm -rf %{buildroot}
 %doc Changes README
 %{perl_vendorlib}/CGI
 %{_mandir}/man3/*
-
-
-
